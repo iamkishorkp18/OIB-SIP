@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Authentication</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Register Page -->
+    <div id="registerPage" class="box">
+      <h2>Create Account</h2>
+      <input type="text" id="regEmail" placeholder="Email"><br>
+      <input type="password" id="regPassword" placeholder="Password"><br>
+      <button onclick="register()">Register</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="box hidden">
+      <h2>Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email"><br>
+      <input type="password" id="loginPassword" placeholder="Password"><br>
+      <button onclick="login()">Login</button>
+      <p>Don’t have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+    </div>
+
+    <!-- Secure Page -->
+    <div id="securePage" class="box hidden">
+      <h2>Welcome 🎉</h2>
+      <p>You are logged in and can access this secure page.</p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

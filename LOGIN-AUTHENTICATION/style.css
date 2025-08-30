@@ -1,0 +1,81 @@
+/* Center everything */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Box style */
+.box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+  padding: 30px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input {
+  margin: 8px 0;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border: 1px solid #6c63ff;
+}
+
+button {
+  padding: 10px 16px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #5548d6;
+}
+
+a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Smooth fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
