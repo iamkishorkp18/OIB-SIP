@@ -1,0 +1,128 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: linear-gradient(to bottom, #ff9933, #ffffff, #138808); /* Tricolor background */
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* Image */
+.image-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-section img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+  border: 5px solid #33ff92;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+
+.image-section img:hover {
+  transform: scale(1.1);
+}
+
+/* Sections */
+.bio, .timeline, .achievements, .quote {
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #2c3e50;
+  border-left: 6px solid #138808;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+/* Timeline */
+.timeline ul, .achievements ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.timeline li, .achievements li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-weight: 500;
+}
+
+.timeline li::before, .achievements li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+/* Quote */
+blockquote {
+  background: #eee;
+  padding: 15px;
+  font-style: italic;
+  border-left: 5px solid #e74c3c;
+  margin: 0;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: #222;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 2s ease-in-out;
+}
