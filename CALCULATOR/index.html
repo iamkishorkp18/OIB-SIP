@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <center><h2 style="color: rgb(210, 232, 43);">SCIENTIFIC CALCULATOR</h2></center>
+            <form name="calc">
+                <div class="display">
+                    <input type="text" name="display" id="display">
+                </div>
+
+                <div>
+                    <input type="button" value="AC" onclick="display.value = ''">
+                    <input type="button" value="DEL" onclick="display.value = display.value.toString().slice(0,-1)">
+                    <input type="button" value="." onclick="display.value += '.'">
+                    <input type="button" value="/" onclick="display.value += '/'">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="display.value += '7'">
+                    <input type="button" value="8" onclick="display.value += '8'">
+                    <input type="button" value="9" onclick="display.value += '9'">
+                    <input type="button" value="*" onclick="display.value += '*'">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value += '4'">
+                    <input type="button" value="5" onclick="display.value += '5'">
+                    <input type="button" value="6" onclick="display.value += '6'">
+                    <input type="button" value="-" onclick="display.value += '-'">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value += '1'">
+                    <input type="button" value="2" onclick="display.value += '2'">
+                    <input type="button" value="3" onclick="display.value += '3'">
+                    <input type="button" value="+" onclick="display.value += '+'">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick="display.value += '00'">
+                    <input type="button" value="0" onclick="display.value += '0'">
+                    <input type="button" value="=" class="equal" onclick="calculate()">
+                </div>
+
+              
+                <div>
+                    <input type="button" value="sin" onclick="scientific('sin')">
+                    <input type="button" value="cos" onclick="scientific('cos')">
+                    <input type="button" value="tan" onclick="scientific('tan')">
+                    <input type="button" value="log" onclick="scientific('log')">
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="history">
+            <center><h3 style="color: rgb(119, 130, 36);">CALCULATION HISTORY</h3></center>
+            <div id="historyList" style="background:#222; color:#eee; padding:10px; min-height:80px; border-radius:5px; margin-bottom:10px;"></div>
+            <button onclick="clearHistory()">Clear History</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+        let history = [];
+
+        function calculate() {
+            try {
+                let expression = display.value;
+                let result = eval(expression);
+                display.value = result;
+
+                addToHistory(expression + " = " + result);
+            } catch (e) {
+                alert("Invalid Expression");
+            }
+        }
+
+        function scientific(func) {
+            let val = parseFloat(display.value);
+            if (isNaN(val)) {
+                alert("Enter a number first!");
+                return;
+            }
+            let result;
+            switch (func) {
+                case 'sin': result = Math.sin(val * Math.PI / 180); break;
+                case 'cos': result = Math.cos(val * Math.PI / 180); break;
+                case 'tan': result = Math.tan(val * Math.PI / 180); break;
+                case 'log': result = Math.log10(val); break;
+            }
+            addToHistory(func + "(" + val + ") = " + result);
+            display.value = result;
+        }
+
+        function addToHistory(entry) {
+            history.push(entry);
+            updateHistory();
+        }
+
+        function updateHistory() {
+            const historyDiv = document.getElementById("historyList");
+            historyDiv.innerHTML = "";
+            history.forEach(item => {
+                const p = document.createElement("p");
+                p.textContent = item;
+                historyDiv.appendChild(p);
+            });
+        }
+
+        function clearHistory() {
+            history = [];
+            updateHistory();
+        }
+    </script>
+</body>
+</html>
